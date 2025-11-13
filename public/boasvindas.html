@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>RomanceFlix</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 id="mensagem"></h1>
+    <h2>Filmes de Romance em Destaque</h2>
+
+    <div class="filmes">
+      <div class="card">
+        <img src="img/antes.jpg" alt="Como Eu Era Antes de Você">
+        <p><strong>Como Eu Era Antes de Você</strong><br>Um encontro que muda tudo.</p>
+      </div>
+
+      <div class="card">
+        <img src="img/dirty.jpg" alt="Dirty Dancing">
+        <p><strong>Dirty Dancing: Ritmo Quente</strong><br>Ninguém deixa Baby num canto.</p>
+      </div>
+
+      <div class="card">
+        <img src="img/hill.jpg" alt="Notting Hill">
+        <p><strong>Um Lugar Chamado Notting Hill</strong><br>O amor pode surgir nos lugares mais inesperados.</p>
+      </div>
+
+      <div class="card">
+        <img src="img/mulher.jpg" alt="Uma Linda Mulher">
+        <p><strong>Uma Linda Mulher</strong><br>Um conto de fadas moderno inesquecível.</p>
+      </div>
+
+      <div class="card">
+        <img src="img/muito.jpg" alt="Alguém Muito Especial">
+        <p><strong>Alguém Muito Especial</strong><br>Descobrindo o amor e o valor das pequenas coisas.</p>
+      </div>
+    </div>
+
+    <button onclick="irParaAdmin()">Administração</button>
+    <button onclick="sair()">Sair</button>
+    
+    <script>
+      document.getElementById('mensagem').innerText =
+        "Bem-vindo(a) à RomanceFlix, " + (localStorage.getItem('usuarioNome') || 'Convidado') + "!";
+    
+      function irParaAdmin() {
+        const user = localStorage.getItem("usuarioNome");
+        if (user.toLowerCase() !== "admin") {
+          alert("Somente o administrador pode acessar esta área!");
+          return;
+        }
+        window.location.href = 'admin.html';
+      }
+    
+      function sair() {
+        localStorage.clear();
+        window.location.href = 'index.html';
+      }
+    </script>
+</body>
+</html>
